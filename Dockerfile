@@ -57,6 +57,11 @@ RUN chmod +x /gsettings.sh
 
 CMD ["/usr/bin/supervisord", "-n"]
 
+
+#CMD ["useradd -ms /bin/bash test"]
+CMD ["echo root:test|chpasswd"]
+
+
 # Set the locale
 #RUN locale-gen de_DE.UTF-8
 #ENV LANG de_DE.UTF-8
