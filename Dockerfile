@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:latest
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update -y 
@@ -28,21 +28,21 @@ RUN sed -i '/TerminalServerUsers/d' /etc/xrdp/sesman.ini && \
 RUN xrdp-keygen xrdp auto
 RUN apt-get install -y vim
 
-# Install Java.
-RUN \
-  echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
-  apt-get update -y && \
-  apt-get install -y software-properties-common && \
-  add-apt-repository -y ppa:webupd8team/java && \
-  apt-get update && \
-  apt-get install -y oracle-java8-installer && \
-  rm -rf /var/cache/oracle-jdk8-installer
+## Install Java.
+#RUN \
+#  echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
+#  apt-get update -y && \
+#  apt-get install -y software-properties-common && \
+#  add-apt-repository -y ppa:webupd8team/java && \
+#  apt-get update && \
+#  apt-get install -y oracle-java8-installer && \
+#  rm -rf /var/cache/oracle-jdk8-installer
 
 # Define commonly used JAVA_HOME variable
-ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
+#ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 
-RUN apt-get install -y caja-dropbox
+#RUN apt-get install -y caja-dropbox
 
 
 RUN apt-get autoclean && apt-get autoremove && \
@@ -58,10 +58,10 @@ RUN chmod +x /gsettings.sh
 CMD ["/usr/bin/supervisord", "-n"]
 
 # Set the locale
-RUN locale-gen de_DE.UTF-8
-ENV LANG de_DE.UTF-8
-ENV LANGUAGE de_DE:de
-ENV LC_ALL de_DE.UTF-8
-RUN update-locale LANG=de_DE.UTF-8
-RUN ln -fs /usr/share/zoneinfo/Europe/Berlin /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
-COPY cismet.png /cismet.png
+#RUN locale-gen de_DE.UTF-8
+#ENV LANG de_DE.UTF-8
+#ENV LANGUAGE de_DE:de
+#ENV LC_ALL de_DE.UTF-8
+#RUN update-locale LANG=de_DE.UTF-8
+#RUN ln -fs /usr/share/zoneinfo/Europe/Berlin /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
+#COPY cismet.png /cismet.png
