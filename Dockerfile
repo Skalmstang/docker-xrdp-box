@@ -3,13 +3,13 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update -y 
 RUN apt-get install -y software-properties-common
-RUN apt-add-repository -y ppa:ubuntu-mate-dev/xenial-mate
-RUN apt-get update -y
-RUN apt full-upgrade -y
-RUN apt-get dist-upgrade -y
-RUN apt-get install -y mate-core
-RUN apt-get install -y mate-desktop-environment
-RUN apt-get install -y mate-notification-daemon
+#RUN apt-add-repository -y ppa:ubuntu-mate-dev/xenial-mate
+#RUN apt-get update -y
+#RUN apt full-upgrade -y
+#RUN apt-get dist-upgrade -y
+#RUN apt-get install -y mate-core
+#RUN apt-get install -y mate-desktop-environment
+#RUN apt-get install -y mate-notification-daemon
 #RUN apt-get install -y gconf-service libnspr4 libnss3 fonts-liberation
 #RUN apt-get install -y libappindicator1 libcurl3 fonts-wqy-microhei
 #RUN apt-get install -y firefox
