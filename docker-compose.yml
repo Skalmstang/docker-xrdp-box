@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  rdp:
+    build: .
+    ports:
+      - 3389:3389
